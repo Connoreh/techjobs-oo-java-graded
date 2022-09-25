@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class Job {
@@ -46,6 +47,36 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString(){
+//        String response = "\n";
+//        Field[] fields = someJob.getClass().getDeclaredFields();
+//        for(Field field: fields){
+//            response += field + "\n";
+//
+//
+//        }
+//        return response;
+    if(this.getName().trim().equals("")){
+        return "\nName: Data Not Available" + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: "  + this.getCoreCompetency() + "\n";
+    }
+        if(this.getEmployer().toString().trim().equals("")){
+            return "\nName: " + this.getName() + "\nEmployer: Data Not Available" +  "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: "  + this.getCoreCompetency() + "\n";
+        }
+        if(this.getLocation().toString().trim().equals("")){
+            return "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() +  "\nLocation: Data Not Available" + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: "  + this.getCoreCompetency() + "\n";
+        }
+        if(this.getPositionType().toString().trim().equals("")){
+            return "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: Data Not Available"+ "\nCore Competency: "  + this.getCoreCompetency() + "\n";
+        }
+        if(this.getCoreCompetency().toString().trim().equals("")){
+            return "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: Data Not Available\n";
+        }
+
+    else
+        return "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: "  + this.getCoreCompetency() + "\n";
     }
 
 
